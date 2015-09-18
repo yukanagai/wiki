@@ -2,12 +2,29 @@
 
   <p id="notice"><%= notice %></p>
 
+<!-- MENU NAV -->
+<div id="o-wrapper" class="o-wrapper">
+
+  <div class="buttons">
+    <button id="c-button--push-right" class="c-button">Push Right</button>
+  </div>
+
+  <!-- other content in here -->
+
+</div><!-- /o-wrapper -->
+
+  <!-- menus here -->
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+
+
   <div class="sidebar">
     <h3>Add a new article:</h3>
       <%= link_to 'New Article', new_article_path %>
     <h3>Search by tags:</h3>
       <ul>
-        <li> <%= link_to "All Articles", root_path %></li>
+        <li><a href="/tags/new">Create a new tag</a></li>
         <% Tag.all.each do |tag| %>
         <li><%= link_to tag.name, articles_path(tag: tag.name) %></li>
         <% end %>
