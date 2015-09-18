@@ -7,18 +7,13 @@
 
 <div class="article-content">
   <p>
-    <%= markdown("#{@article.content}") %>
+    <%= markdown(@article.content) %>
   </p>
 
-  <div id='tags'>
-      Tagged: <%= "#{@article.tag.name}" %>
-  </div>
-
-  <h4>Published <%= time_ago_in_words @article.created_at %> ago
-    by <%= @article.user.first_name %> <%= @article.user.last_name %> </h4>
-
-  <h4>Updated <%= time_ago_in_words @article.updated_at %> ago by
-    <%= current_user.first_name %>   <%= current_user.last_name %></h4>
+  <h5>Tagged: #<%= @article.tag.name %><br>
+  Published <%= time_ago_in_words @article.created_at %> ago
+    by <%= link_to @article.user.first_name, user_path(@article.user) %>. <br>
+  Updated <%= time_ago_in_words @article.updated_at %> ago.</h5>
 </div>
 
 <% current_user.first_name %>

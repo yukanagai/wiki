@@ -15,13 +15,20 @@ a:hover {
   color: black;
 }
 
-.header a:hover {
+#title-header a:hover {
     text-decoration: line-through;
 }
 
 ::selection {
      background: #1abc9c;
      color: #333;
+ }
+
+ #title-header {
+   font-family: 'Amatic SC', cursive;
+   font-size: 2em;
+   text-align: center;
+   margin: 30px;
  }
 
 #footer {

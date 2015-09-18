@@ -2,10 +2,6 @@
 
   <p id="notice"><%= notice %></p>
 
-  <div class="header">
-    <h1><a href="/articles">Henrietta's Wiki</a></h1>
-  </div>
-
   <div class="sidebar">
     <h3>Add a new article:</h3>
     <%= link_to 'New Article', new_article_path %>
@@ -22,7 +18,6 @@
   <div class="article-list">
     <% @articles.each do |article| %>
       <h2><%= link_to article.title, article %></h2>
-        <!-- Snippet preview of article content: -->
         <%= truncate(article.content, length: 200) %>
       <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
       By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
