@@ -2,21 +2,15 @@
 
   <p id="notice"><%= notice %></p>
 
-<!-- MENU NAV -->
-<div id="o-wrapper" class="o-wrapper">
-
-  <div class="buttons">
-    <button id="c-button--push-right" class="c-button">Push Right</button>
-  </div>
-
-  <!-- other content in here -->
-
-</div><!-- /o-wrapper -->
-
-  <!-- menus here -->
-
-<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
-
+  <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+  	<h3>Menu</h3>
+  	<a href="#">Celery seakale</a>
+  	<a href="#">Dulse daikon</a>
+  	<a href="#">Zucchini garlic</a>
+  	<a href="#">Catsear azuki bean</a>
+  	<a href="#">Dandelion bunya</a>
+  	<a href="#">Rutabaga</a>
+  </nav>
 
 
   <div class="sidebar">
@@ -33,6 +27,10 @@
 
   <!-- Displays all articles: -->
   <div class="article-list">
+
+
+
+
     <% @articles.each do |article| %>
       <h2><%= link_to article.title, article %></h2>
         <%= truncate(article.content, length: 200) %>
