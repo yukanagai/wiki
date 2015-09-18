@@ -2,23 +2,28 @@
 
 <div class="header">
   <h1><%= @article.title %></h1>
+  <hr />
 </div>
-<hr />
 
 <div class="article-content">
-  <p>
-    <%= markdown(@article.content) %>
-  </p>
 
-  <h5>Tagged: #<%= @article.tag.name %><br>
-  Published <%= time_ago_in_words @article.created_at %> ago
+  <p><%= markdown(@article.content) %></p>
+
+  <h5>
+    Tagged: #<%= @article.tag.name %><br>
+    Published <%= time_ago_in_words @article.created_at %> ago
     by <%= link_to @article.user.first_name, user_path(@article.user) %>. <br>
-  Updated <%= time_ago_in_words @article.updated_at %> ago.</h5>
+    Updated <%= time_ago_in_words @article.updated_at %> ago.
+  </h5>
+
 </div>
 
-<% current_user.first_name %>
 <div class="article-buttons">
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Delete', @article, method: :delete, data: { confirm: "YOU SURE?" } %><br><br>
-  <%= link_to 'Back to articles', articles_path %>
+  <% if current_user %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Delete', @article, method: :delete, data: { confirm: "YOU SURE?" } %><br><br>
+    <%= link_to 'Back to articles', articles_path %>
+  <% else %>
+    <%= link_to 'Back to articles', articles_path %>
+  <% end %>
 </div>
