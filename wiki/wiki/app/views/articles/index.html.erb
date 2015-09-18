@@ -1,0 +1,38 @@
+<div class="homepage">
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="header">
+    <h1><a href="/articles">Henrietta's Wiki</a></h1>
+  </div>
+
+  <div class="sidebar">
+    <h3>Add a new article:</h3>
+    <%= link_to 'New Article', new_article_path %>
+
+    <h3>Search by tags:</h3>
+    <ul>
+      <li> <%= link_to "All Articles", root_path %></li>
+        <% Tag.all.each do |tag| %>
+          <li><%= link_to tag.name, articles_path(tag: tag.name) %></li>
+    <% end %>
+  </div>
+
+  <!-- Displays all articles: -->
+  <div class="article-list">
+    <% @articles.each do |article| %>
+      <h2><%= link_to article.title, article %></h2>
+        <!-- Snippet preview of article content: -->
+        <%= truncate(article.content, length: 200) %>
+      <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
+      By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
+    <hr />
+    <% end %>
+  </div>
+  </div>
+
+  <div id="footer">
+    <div id="signature">
+      <h5>Made with <img src='http://brightnewday.dk/img/heart.png' width=30px;> by Yuka Nagai</h5>
+    </div>
+</div>
