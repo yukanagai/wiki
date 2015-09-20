@@ -1,5 +1,4 @@
 <div class="homepage">
-helloooooo
   <p id="notice"><%= notice %></p>
 
   <div class="sidebar">
@@ -16,10 +15,6 @@ helloooooo
 
   <!-- Displays all articles: -->
   <div class="article-list">
-
-
-
-
     <% @articles.each do |article| %>
       <h2><%= link_to article.title, article %></h2>
         <%= truncate(article.content, length: 200) %>
@@ -29,6 +24,7 @@ helloooooo
     <% end %>
   </div>
   </div>
+
 
   <div id="footer">
     <div id="signature">
