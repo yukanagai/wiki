@@ -1,4 +1,8 @@
 /*FOR EVERYTHING*/
+html {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   height: 100%;
@@ -16,6 +20,8 @@ body {
 #main {
   overflow:auto;
   padding-bottom: 100px;
+  margin: 0 auto;
+  padding-top: 0;
 }
 
 #footer {
@@ -97,25 +103,29 @@ a:hover {
 }
 
 .logo {
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Open Sans Condensed', sans-serif;
   color: white;
-  margin-left: 30px;
+  margin-left: 20px;
   float: left;
-  font-size: 1em;
+  text-transform: uppercase;
 }
 
 .logo a {
   color: white;
+  padding: 14px 35px;
 }
 
 .login-nav {
+  font-family: 'Open Sans Condensed', sans-serif;
   float: right;
 }
 
 .login-nav a {
   display: inline-block;
   padding: 14px 35px;
+  margin-left: 30px;
   color: white;
+  text-transform: uppercase;
 }
 
 
@@ -123,8 +133,22 @@ a:hover {
   color: white;
   display: inline-block;
   text-transform: capitalize;
+  margin-left: 30px;
 }
 
+.about a {
+  margin-left: 10px;
+  text-transform: uppercase;
+  color: white;
+  padding: 14px 35px;
+  display: inline-block;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.about {
+  margin-top: 0;
+  display: inline-block;
+}
 
 
 /* HOMEPAGE (ARTICLES) */
@@ -162,7 +186,7 @@ a:hover {
 
 .sidebar {
   float: left;
-  margin: 10px 40px;
+  margin: 10px 60px;
   padding: 0px 10px;
   width: 200px;
   height: 1800px;
@@ -280,6 +304,7 @@ a:hover {
   margin: 20px;
   width: 700px;
   margin: 0 auto;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .user-page {
@@ -295,8 +320,7 @@ a:hover {
 .user-info {
   height: auto;
   float: right;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-right: 20px;
 }
 
 .user-info li {
@@ -399,5 +423,10 @@ a:hover {
 }
 
 
+/*ABOUT PAGE*/
 
+.about-pg {
+  width: 500px;
+  margin: 0 auto;
 
+}
