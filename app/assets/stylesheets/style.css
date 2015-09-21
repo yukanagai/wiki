@@ -283,7 +283,6 @@ a:hover {
 }
 
 .user-page {
-  background: grey;
   margin: 0 auto;
   width: 700px;
 }
@@ -291,14 +290,13 @@ a:hover {
 .user-posts {
   height: auto;
   float: left;
-  margin-right: 30px;
 }
 
 .user-info {
   height: auto;
   float: right;
-  padding: 0px 50px;
-  margin-right: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .user-info li {
