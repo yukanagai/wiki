@@ -23,8 +23,10 @@
       <% @articles.each do |article| %>
         <h2 class="header-text"><%= link_to article.title, article %></h2>
           <%= truncate(article.content, length: 200) %>
-        <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
-        By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
+
+      <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
+      By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
+        <h5><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
       <hr />
       <% end %>
     </div>
