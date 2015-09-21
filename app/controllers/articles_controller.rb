@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
   def show
     # DRY method - set_article defined in top/bottom
-
+  end
 
   def new
     if current_user
