@@ -15,14 +15,13 @@
   <div class="new-tag-form">
     <div class="tag-wrapper">
       <h2 class="header-text">Create a new tag:</h2>
-
       <div class="field">
         <%= f.text_field :name, class: 'input-box', placeholder: "Tag name" %>
       </div>
       <br>
-
-       <p><input type="submit" value="Create" id="submit-button"></p>
-
+      <div class="actions">
+       <%= f.submit :Submit, id:'submit-button' %>
+      </div>
       <div id="actions">
         <p id="submit-button"><a href="/articles">Cancel</a></p>
       </div>
