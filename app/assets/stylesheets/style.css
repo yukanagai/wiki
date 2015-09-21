@@ -1,11 +1,48 @@
 /*FOR EVERYTHING*/
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  font-family: 'Helvetica', sans-serif;
   line-height: 18px;
   font-size: 13px;
   margin: 0;
   padding: 0;
+}
+
+#wrapper {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom: 100px;
+}
+
+#footer {
+  position: relative;
+  margin-top: -100px;
+  height: 100px;
+  clear: both;
+  text-align: center;
+}
+
+#signature {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.header-text {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 2em;
+}
+
+
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;/
 }
 
 a {
@@ -13,6 +50,9 @@ a {
   color: black;
 }
 
+a:hover {
+  color: #1abc9c;
+}
 ::selection {
      background: #1abc9c;
      color: #333;
@@ -29,7 +69,7 @@ a {
 
  #title-header h1 {
    font-family: 'Amatic SC', cursive;
-   font-size: 2em;
+   font-size: 4em;
    text-align: center;
    margin-top: 100px;
  }
@@ -38,41 +78,30 @@ a {
     text-decoration: line-through;
 }
 
-#signature {
-  text-align: center;
-  display: block;
-  margin-top: 50px;
-  font-family: 'Arimo', sans-serif;
-  font-size: 1em;
-  float: bottom;
-}
 
 /* NAV BAR */
 
 .nav-bar {
   background: black;
   width: 100%;
-  height: 45px;
-  margin: 0;
-  padding: 0;
+  height: 50px;
 }
 
 .login-nav {
-  text-align: right;
-  margin: 0;
-  display: block;
   float: right;
 }
 
 .login-nav a {
+  display: inline-block;
+  padding: 14px 35px;
   color: white;
-  margin: 0;
 }
 
+
 #loggedin-username {
-  margin: 0;
   color: white;
   display: inline-block;
+  text-transform: capitalize;
 }
 
 
@@ -89,41 +118,44 @@ a {
   color: white;
   display: inline-block;
   text-align: center;
+  width: 400px;
+  margin: 20px;
+}
+
+.input-box {
+  width: 225px;
+  height: 25px;
 }
 
 .login-input a {
   text-decoration: none;
   color: white;
   background: black;
-}
-
-#login-input h3 {
-  text-align: right;
-}
-
-#login-input h1 {
-  text-align: center;
+  width: 100%;
 }
 
 #submit-button {
   border: black;
   background: black;
   color: white;
-  font-family: 'Open Sans', sans-serif;
-  width: 150px;
-  height: 30px;
+  width: 225px;
+  height: 25px;
 }
 
 #submit-button:hover {
   border-radius: 20px;
 }
 
-#new-user h4 {
-  color: white;
+#new-user {
+  font-size: 11px;
+  margin: 30px;
+  padding: ;
+}
+
+#new-user a {
+  padding: 6px 90px;
   background: black;
-  font-family: 'Open Sans', sans-serif;
-  width: 150px;
-  height: 30px;
+  color: white;
 }
 
 #new-user a:hover {
@@ -132,12 +164,112 @@ a {
 
 /* NEW USER SIGN UP */
 
-.new-user-signup {
+.new-user-form {
+  background: #1abc9c;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  margin: 20px;
+  padding-bottom: 20px;
+}
+
+.content-centering-wrapper  {
+  margin: 0 auto;
   text-align: center;
 }
 
 
+/* USERS SHOW (ACCOUNT) PAGE*/
 
+.user-everything {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.my-account-header {
+  margin: 20px;
+  display:;
+}
+
+.user-page {
+  width: 500px
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-posts {
+  max-width: 400px;
+  height: auto;
+  float: left;
+  padding: 0px 50px;
+  margin-right: 30px;
+}
+
+.user-info {
+  max-width: 300px;
+  height: auto;
+  float: right;
+  padding: 0px 50px;
+  margin-right: 30px;
+
+}
+
+.user-info li {
+  list-style: none;
+  margin-left: -40px;
+}
+
+
+.nav-links {
+  display: inline-block;
+  float: right;
+  background: red;
+}
+
+
+/*NEW ARTICLE PAGE*/
+
+.input-article {
+  height: 200px;
+  width: 325px;
+  font-size: 15px;
+}
+
+.input-title {
+  height: 30px;
+  width: 325px;
+  font-size: 16px;
+}
+
+.new-article-form {
+  background: #1abc9c;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  width: 600px;
+  margin: 20px;
+  padding: 20px;
+}
+
+#submit-article-button {
+  border: black;
+  background: black;
+  color: white;
+  width: 325px;
+  height: 25px;
+}
+
+#submit-article-button:hover {
+  border-radius: 20px;
+}
+
+
+.tag-input {
+  background: black;
+  color: white;
+  font-size: 12px;
+}
 
 /* HOMEPAGE (ARTICLES) */
 

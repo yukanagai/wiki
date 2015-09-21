@@ -10,24 +10,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
+  <div class="new-article-form">
 
-  <div id="tags-form">
-    Pick a tag: <%= f.collection_select :tag_id, Tag.all, :id, :name, { prompt: 'Choose a tag'} %>
-  </div>
+    <div class="field">
+      <%= f.text_field :title, class: 'input-title', placeholder:'Title' %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.text_area :content, class: 'input-article', placeholder: 'Content' %>
+    </div>
+    <br>
+    <div id="tag-dropdown">
+      <h4>Add a tag: 
+      <%= f.collection_select :tag_id, Tag.all, :id, :name, { prompt: '#hashtag'}, :class => 'tag-input' %></h4>
+    </div>
+    <br>
+    <div class="actions">
+     <%= f.submit :Submit, id:'submit-article-button' %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    Editting as: <%= current_user.first_name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
