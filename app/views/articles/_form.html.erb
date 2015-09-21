@@ -12,22 +12,32 @@
 
   <div class="new-article-form">
 
-    <div class="field">
-      <%= f.text_field :title, class: 'input-title', placeholder:'Title' %>
-    </div>
-    <br>
-    <div class="field">
-      <%= f.text_area :content, class: 'input-article', placeholder: 'Content' %>
-    </div>
-    <br>
-    <div id="tag-dropdown">
-      <h4>Add a tag: 
-      <%= f.collection_select :tag_id, Tag.all, :id, :name, { prompt: '#hashtag'}, :class => 'tag-input' %></h4>
-    </div>
-    <br>
-    <div class="actions">
-     <%= f.submit :Submit, id:'submit-article-button' %>
-    </div>
-  <% end %>
+    <div class="article-wrapper">
+
+      <h2 class="header-text">Post an article:</h2>
+
+      <div class="field">
+        <%= f.text_field :title, class: 'input-title', placeholder:'Title' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_area :content, class: 'input-article', placeholder: 'Content' %>
+      </div>
+    
+      <div id="tag-dropdown">
+        <h4>Add a tag: 
+        <%= f.collection_select :tag_id, Tag.all, :id, :name, { prompt: '#hashtag'}, :class => 'tag-input' %></h4>
+      </div>
+
+      <div class="actions">
+       <%= f.submit :Submit, id:'submit-article-button' %>
+      </div>
+      <br>
+
+      <div id="submit-article-button">
+        <a href="/articles">Cancel</a>
+      </div>
+    <% end %>
+  </div>
 
 </div>

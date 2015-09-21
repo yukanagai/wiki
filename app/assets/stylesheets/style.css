@@ -36,15 +36,6 @@ body {
   font-size: 2em;
 }
 
-
-body:before {
-  content:"";
-  height:100%;
-  float:left;
-  width:0;
-  margin-top:-32767px;/
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -52,30 +43,48 @@ a {
 
 a:hover {
   color: #1abc9c;
+  text-decoration: underline;
 }
+
 ::selection {
-     background: #1abc9c;
-     color: #333;
+  background: #1abc9c;
+  color: #333;
+ }
+
+ .notice-div {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
  }
 
  #notice {
    color: #E91E63;
-   font-style: bold;
+   font-size: 1em;
+   text-transform: uppercase;
  }
 
- #title-header {
-   height: 50px;
+ #title {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 30px;
  }
 
- #title-header h1 {
-   font-family: 'Amatic SC', cursive;
-   font-size: 4em;
-   text-align: center;
-   margin-top: 100px;
- }
+ #title a:hover {
+  text-decoration: line-through;
+}
 
- #title-header a:hover {
-    text-decoration: line-through;
+#submit-button {
+  border: black;
+  background: black;
+  color: white;
+  width: 225px;
+  height: 25px;
+}
+
+#submit-button a:hover {
+  text-decoration: none;
 }
 
 
@@ -85,6 +94,18 @@ a:hover {
   background: black;
   width: 100%;
   height: 50px;
+}
+
+.logo {
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  margin-left: 30px;
+  float: left;
+  font-size: 1em;
+}
+
+.logo a {
+  color: white;
 }
 
 .login-nav {
@@ -103,7 +124,6 @@ a:hover {
   display: inline-block;
   text-transform: capitalize;
 }
-
 
 /*LOGIN PAGE*/
 
@@ -125,6 +145,7 @@ a:hover {
 .input-box {
   width: 225px;
   height: 25px;
+  font-size: 14px;
 }
 
 .login-input a {
@@ -132,18 +153,6 @@ a:hover {
   color: white;
   background: black;
   width: 100%;
-}
-
-#submit-button {
-  border: black;
-  background: black;
-  color: white;
-  width: 225px;
-  height: 25px;
-}
-
-#submit-button:hover {
-  border-radius: 20px;
 }
 
 #new-user {
@@ -159,8 +168,9 @@ a:hover {
 }
 
 #new-user a:hover {
-  border-radius: 20px;
+  text-decoration: none;
 }
+
 
 /* NEW USER SIGN UP */
 
@@ -224,21 +234,29 @@ a:hover {
 .nav-links {
   display: inline-block;
   float: right;
-  background: red;
 }
 
 
 /*NEW ARTICLE PAGE*/
 
+.article-wrapper h2{
+  text-align: left;
+}
+
+.article-wrapper {
+  width: 350px;
+  margin: 0 auto;
+}
+
 .input-article {
   height: 200px;
-  width: 325px;
+  width: 350px;
   font-size: 15px;
 }
 
 .input-title {
   height: 30px;
-  width: 325px;
+  width: 350px;
   font-size: 16px;
 }
 
@@ -248,22 +266,14 @@ a:hover {
   display: inline-block;
   text-align: center;
   width: 600px;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 30px 20px;
 }
 
-#submit-article-button {
-  border: black;
-  background: black;
-  color: white;
-  width: 325px;
-  height: 25px;
-}
 
-#submit-article-button:hover {
-  border-radius: 20px;
+#tag-dropdown h4 {
+  text-align: left;
 }
-
 
 .tag-input {
   background: black;
@@ -271,19 +281,97 @@ a:hover {
   font-size: 12px;
 }
 
+#submit-article-button {
+  background: black;
+  color: white;
+  width: 350px;
+  height: 25px;
+  border: none;
+}
+
+#submit-article-button a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/*CREATE A NEW TAG*/
+
+.new-tag-form {
+  background: #1abc9c;
+  color: white;
+  display: block;
+  width: 400px;
+  margin: 20px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.tag-wrapper {
+  width: 225px;
+  margin: 0 auto;
+}
+
+#submit-button {
+  border: black;
+  background: black;
+  text-align: center;
+}
+
+#submit-button a {
+  color: white;
+  width: 225px;
+  height: 25px;
+  font-size: 11px;
+}
+
+
+
 /* HOMEPAGE (ARTICLES) */
+
+.sidebar-button {
+  display: block;
+  color: white;
+  background: #E91E63;
+  text-align: center;
+  text-decoration: bold;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.nav-create-button {
+  background: red;
+  margin-right: 10px;
+}
+
+.tags-header {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.tag-list {
+  list-style: none;
+  margin-left: -20px;
+}
+
+.sidebar-button a {
+  color: white;
+  width: 150px;
+}
+
 
 .sidebar {
   float: left;
-  padding: 10px;
-  margin: 20px;
+  margin: 10px 20px;
+  padding: 0px 10px;
+  width: 200px;
 }
 
 .article-list {
-  display: inline-block;
-  width: 600px;
-  margin: 20px 70px;
+  margin: 20px;
   padding: 10px;
+  width: 600px;
+  min-width: 250px;
 }
 
 .homepage h1 {
@@ -291,3 +379,33 @@ a:hover {
   font-size: 4em;
   text-align: center;
 }
+
+/*ARTICLES SHOW PAGE*/
+
+.articles-wrapper {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.article-header {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.article-buttons {
+  text-align: center;
+}
+
+.article-nav-buttons {
+  background: black;
+  display: inline-block;
+  width: 185px;
+  height: 25px;
+}
+
+.article-nav-buttons a {
+  color: white;
+  text-decoration: none;
+}
+
+
+

@@ -3,14 +3,14 @@
 <div class="user-everything">
 
   <div class="my-account-header">
-    <h1 class="header-text">My Account</h1>
+    <h1 class="header-text">Account Info</h1>
     <hr />
   </div>
 
   <div class="user-page">
 
       <div class="user-posts">
-        <h2 class="header-text"><strong>My Published Articles:</strong></h2>
+        <h2 class="header-text"><strong>Published Articles:</strong></h2>
         <ul>
         <% @user.articles.each do |article| %>
           <li><%= link_to article.title, article  %></li>

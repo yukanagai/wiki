@@ -1,28 +1,31 @@
-<div class="homepage">
-  <p id="notice"><%= notice %></p>
-
-  <div class="sidebar">
-    <h2 class="header-text">Add a new article:</h2>
-      <%= link_to 'New Article', new_article_path %>
-    <h2 class="header-text">Search by tags:</h2>
-      <ul>
-        <li><a href="/tags/new">Create a new tag</a></li>
-        <% Tag.all.each do |tag| %>
-        <li><%= link_to tag.name, articles_path(tag: tag.name) %></li>
+<body>
+    <div class="sidebar">
+        <% if current_user %>
+        <p class="sidebar-button">
+          <%= link_to 'New article', new_article_path %></p>
+          <p class="sidebar-button"><a href="/tags/new">New tag</a></p>
+        <% else %>
+        <div id="notice">
+          <p>Tip: sign in to post an article<p>
+        </div>
         <% end %>
-      </ul>
-  </div>
 
-  <!-- Displays all articles: -->
-  <div class="article-list">
-    <% @articles.each do |article| %>
-      <h2 class="header-text"><%= link_to article.title, article %></h2>
-        <%= truncate(article.content, length: 200) %>
-      <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
-      By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
-    <hr />
-    <% end %>
-  </div>
-  </div>
+      <h2 class="tags-header">Search by tags:</h2>
+        <ul class="tag-list">
+          <% Tag.all.each do |tag| %>
+          <li>#<%= link_to tag.name, articles_path(tag: tag.name) %></li>
+          <% end %>
+        </ul>
+    </div>
 
-</div>
+  <div class="articles-wrapper">
+    <div class="article-list">
+      <% @articles.each do |article| %>
+        <h2 class="header-text"><%= link_to article.title, article %></h2>
+          <%= truncate(article.content, length: 200) %>
+        <h5>Published on <%= article.created_at.strftime('%b %d, %Y') %><br>
+        By: <%= link_to article.user.first_name, user_path(article.user) %> | Tags: <%= link_to article.tag.name %> </h5>
+      <hr />
+      <% end %>
+    </div>
+</body>
