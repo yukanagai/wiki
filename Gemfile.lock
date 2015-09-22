@@ -203,10 +203,11 @@ DEPENDENCIES
   jquery-ui-rails
   pg
   poltergeist
+  pry
   pry-rails
   rails (= 4.2.4)
   redcarpet (~> 3.0.0)
-  rspec-rails (~> 3.3.3)
+  rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -38,12 +38,13 @@ gem 'redcarpet', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry'
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'ffaker'
   gem 'poltergeist'
-  gem 'rspec-rails', '~> 3.3.3'
+  gem 'rspec-rails'
   gem 'capybara'
 end
 

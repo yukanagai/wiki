@@ -94,6 +94,70 @@ a:hover {
 }
 
 
+  /*RESPONSIVE MENU BAR*/
+
+/* http://demos.uilang.com/hamburger-menu/style.css */
+#responsive-menu a {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 11px 0 0 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,40,60,.2);
+  tap-highlight-color: transparent;
+}
+
+#responsive-menu span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: rgb(0,40,60);
+  transition: .7s;
+  pointer-events: none;
+}
+
+#responsive-menu span:nth-child(2) {
+  margin: 3px 0;
+}
+#responsive-menu .open {
+  border-color: rgba(255,255,255,.2);
+}
+#responsive-menu  .open span {
+  background: #fff;
+}
+#responsive-menu .open :first-child {
+  transform: translateY(5px) rotate(-45deg);
+}
+#responsive-menu .open :nth-child(2) {
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+#responsive-menu .open :last-child {
+  transform: translateY(-5px) rotate(-135deg);
+}
+#responsive-menu nav {
+  position: absolute;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(0,40,60);
+  transform: translateX(-100%);
+  transition: .5s;
+}
+#responsive-menu .open + nav {
+  transform: none;
+}
+#responsive-menu code {
+  color: transparent;
+  font-size: 0;
+}
+
+
 /* NAV BAR */
 
 .nav-bar {
