@@ -1,4 +1,7 @@
-/*FOR EVERYTHING*/
+/* ----------------
+  GENERAL STYLING
+ ------------------ */
+
 html {
   margin: 0;
   padding: 0;
@@ -94,71 +97,102 @@ a:hover {
 }
 
 
-  /*RESPONSIVE MENU BAR*/
+/* ----------------
+  RESPONSIVE MENU BUTTON (work in progress)
+ ------------------ */
 
-/* http://demos.uilang.com/hamburger-menu/style.css */
-#responsive-menu a {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1;
-  width: 36px;
-  height: 36px;
-  box-sizing: border-box;
-  padding: 11px 0 0 9px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,40,60,.2);
-  tap-highlight-color: transparent;
+@import "lesshat";
+
+@button-width: 32px;
+@flyout-width: 200px;
+@flyout-color: #400090;
+@flyout-color-light: darken(desaturate(@flyout-color, 40%), 10%);
+
+.hamburger-menu {
+  .hamburger-button {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 101;
+    &:hover {
+      .hamburger-line {
+        background-color: @flyout-color-light;
+      }
+    }
+    padding: 2px;
+    width: @button-width;
+    height: @button-width;
+    .border-radius(5px);
+    .hamburger-line {
+      pointer-events:none;
+      .border-radius(2px);
+      background-color: @flyout-color;
+      height: 4px;
+      width: 80%;
+      margin: 16% 10%;
+    }
+  }
+
+  .hamburger-flyout {
+    position: absolute;
+    -webkit-transition: left 0.3s; /* For Safari 3.1 to 6.0 */
+    transition: left 0.3s;
+    top: 0px;
+    left: -@flyout-width;
+    bottom: 0px;
+    width: @flyout-width;
+    z-index: 100;
+    overflow: hidden;
+    background: @flyout-color;
+    .box-shadow(inset -10px 0px 5px -5px rgba(0,0,0,0.4));
+    .hamburger-menu-title {
+      color: #fff;
+      font-size: 24px;
+
+      margin-top: @button-width/2 - 3px;
+      margin-bottom: 15px;
+      margin-left: 5px;
+      margin-right: 10px;
+
+      padding-left: 15px + @button-width;
+      padding-bottom: 10px;
+      
+      border-bottom: 1px solid #fff;
+    }
+    .hamburger-menu-item {
+      color: #ddd;
+      padding: 15px 10px;
+      display: block;
+      text-decoration: none;
+      
+      .hamburger-menu-item-caption {
+        font-size: 0.7em;
+        color: darken(#ddd, 40%);
+      }
+      &:hover {
+        -webkit-transition: background-color 0.2s; /* For Safari 3.1 to 6.0 */
+        transition: background-color 0.2s;
+        background-color: @flyout-color-light;
+        .box-shadow(inset -10px 0px 5px -5px rgba(0,0,0,0.4));
+      }
+    }
+  }
+
+ &.open {
+    .hamburger-button {
+      .hamburger-line {
+        background-color: #fff;
+      }
+    }
+    .hamburger-flyout {
+      left: 0px;
+    }
+  }
 }
 
-#responsive-menu span {
-  display: block;
-  width: 16px;
-  height: 2px;
-  background: rgb(0,40,60);
-  transition: .7s;
-  pointer-events: none;
-}
-
-#responsive-menu span:nth-child(2) {
-  margin: 3px 0;
-}
-#responsive-menu .open {
-  border-color: rgba(255,255,255,.2);
-}
-#responsive-menu  .open span {
-  background: #fff;
-}
-#responsive-menu .open :first-child {
-  transform: translateY(5px) rotate(-45deg);
-}
-#responsive-menu .open :nth-child(2) {
-  transform: rotate(-45deg);
-  opacity: 0;
-}
-#responsive-menu .open :last-child {
-  transform: translateY(-5px) rotate(-135deg);
-}
-#responsive-menu nav {
-  position: absolute;
-  width: 200px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: rgb(0,40,60);
-  transform: translateX(-100%);
-  transition: .5s;
-}
-#responsive-menu .open + nav {
-  transform: none;
-}
-#responsive-menu code {
-  color: transparent;
-  font-size: 0;
-}
-
-
-/* NAV BAR */
+/* ----------------
+      NAV BAR
+ ------------------ */
 
 .nav-bar {
   background: black;
@@ -215,7 +249,9 @@ a:hover {
 }
 
 
-/* HOMEPAGE (ARTICLES) */
+/* ------------------------
+  HOMEPAGE (ARTICLES INDEX)
+ -------------------------- */
 
 .sidebar-button {
   display: block;
@@ -247,7 +283,6 @@ a:hover {
   width: 150px;
 }
 
-
 .sidebar {
   float: left;
   margin: 10px 60px;
@@ -269,7 +304,9 @@ a:hover {
   text-align: center;
 }
 
-/*ARTICLES SHOW PAGE*/
+/* ------------------------
+  INDIVIDUAL ARTICLE (ARTICLES#SHOW)
+ -------------------------- */
 
 .articles-wrapper {
   margin: 0 auto;
@@ -298,7 +335,9 @@ a:hover {
 
 
 
-/*LOGIN PAGE*/
+/* ------------------------
+        LOGIN PAGE
+ -------------------------- */
 
 .login-form {
   text-align: center;
@@ -362,7 +401,9 @@ a:hover {
 }
 
 
-/* USERS SHOW (ACCOUNT) PAGE*/
+/* ------------------------
+  INDIVIDUAL USER PAGE (USERS#SHOW)
+ -------------------------- */
 
 .my-account-header {
   margin: 20px;
@@ -398,7 +439,9 @@ a:hover {
 }
 
 
-/*NEW ARTICLE PAGE*/
+/* ------------------------
+  CREATE NEW ARTICLE (ARTICLES#NEW)
+ -------------------------- */
 
 .article-wrapper h2{
   text-align: left;
@@ -456,7 +499,9 @@ a:hover {
 }
 
 
-/*CREATE A NEW TAG*/
+/* ------------------------
+  CREATE NEW TAG (TAG#NEW)
+ -------------------------- */
 
 .new-tag-form {
   background: #1abc9c;
@@ -486,8 +531,9 @@ a:hover {
   font-size: 11px;
 }
 
-
-/*ABOUT PAGE*/
+/* ------------------------
+        ABOUT PAGE
+ -------------------------- */
 
 .about-pg {
   width: 500px;
