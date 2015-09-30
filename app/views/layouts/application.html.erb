@@ -13,25 +13,23 @@
 <body>
   <div id="wrapper">
     <div id="main">
-      
+
       <div class="nav-bar">
-      
-        <div class="login-nav">
-          <% if current_user %>
-            <div id="loggedin-username">
-              <b>  <%= link_to(current_user.first_name, user_path(current_user)) %> </b>
-            </div>
-          <% else %>
-            <%= link_to 'Log In', '/login' %>
-            <% end %>
-            <%= link_to 'Log Out', '/logout' %>
+      <div class="login-nav">
+        <% if current_user %>
+          <div id="loggedin-username">
+            <b>  <%= link_to(current_user.first_name, user_path(current_user)) %> </b>
+          </div>
+        <% else %>
+          <%= link_to 'Log In', '/login' %>
+          <% end %>
+          <%= link_to 'Log Out', '/logout' %>
         </div>
 
         <div class="logo">
           <h3><a href="/articles">Code + Design</a></h3>
         </div>
-
-          <h3 class="about"><a href='/about'>About</a></h3>
+        <h3 class="about"><a href='/about'>About</a></h3>
       </div>
 
       <div id="title">
@@ -44,37 +42,6 @@
 
       <div id="main-content">
         <%= yield %>
-      </div>
-
-        <div class="hamburger-menu">
-          <div class="hamburger-button">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-          </div>
-
-          <div class="hamburger-flyout">
-              <div class="hamburger-menu-title">
-                My Menu
-              </div>
-              <a class="hamburger-menu-item" href="#first">
-                Serious Bugs
-              <div class="hamburger-menu-item-caption">
-                  Better get on these soon
-              </div>
-              </a>
-
-              <a class="hamburger-menu-item" href="#second">
-                Really Serious Bugs
-                <div class="hamburger-menu-item-caption">
-                  Oh #@%*!
-                </div>
-              </a>
-          </div>
-        </div>
-
-
-
       </div>
 
     </div>

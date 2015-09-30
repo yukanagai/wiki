@@ -1,0 +1,22 @@
+html {
+	font-family: Tahoma;
+	font-size: 12px;
+}
+
+table {
+	margin: 20px;
+}
+
+th {
+	border: 1px solid black;
+	text-align: center;
+}
+
+td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+#zip {
+	text-align: center;
+}

@@ -11,7 +11,7 @@ body {
   height: 100%;
   font-family: 'Helvetica', sans-serif;
   line-height: 18px;
-  font-size: 13px;
+  font-size: 1.5em;
   margin: 0;
   padding: 0;
 }
@@ -52,7 +52,6 @@ a {
 
 a:hover {
   color: #1abc9c;
-  text-decoration: underline;
 }
 
 ::selection {
