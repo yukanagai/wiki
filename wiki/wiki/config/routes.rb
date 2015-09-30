@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/login' => 'users#login_post'
   get '/logout' => 'users#logout'
 
+  get '/about' => 'users#about'
+
   # match '/users/:id', :to => 'users#show', :as => :user, :via => :get
 
   # The priority is based upon order of creation: first created -> highest priority.

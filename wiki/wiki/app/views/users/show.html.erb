@@ -1,30 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+  <div class="main">
+    <div class="my-account-header">
+      <h1 class="header-text">Account Info</h1>
+      <hr />
+    </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name.capitalize %>
-</p>
+    <div class="user-page">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name.capitalize %>
-</p>
+      <div class="user-posts">
+        <h2 class="header-text">Published Articles:</h2>
+        <ul>
+          <% @user.articles.each do |article| %>
+            <li><%= link_to article.title, article  %></li>
+          <% end %>
+        </ul>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <div class="user-info">
+        <h2 class="header-text">User Info</h2>
+        <ul>
+          <li>
+            <strong>First name:</strong>
+            <%= @user.first_name.capitalize %>
+          </li>
+          <li>
+            <strong>Last name:</strong>
+            <%= @user.last_name.capitalize %>
+          </li>
+          <li>
+            <strong>Email:</strong>
+            <%= @user.email %>
+          </li>
 
-<!--
-# show all articles by this user: -->
-<p>
-  <strong>Posted articles:</strong>
-  <ul>
-  <% @user.articles.each do |article| %>
-    <li><%= link_to article.title, article  %></li>
-  <% end %>
-  </ul>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <li>
+            <Strong>User since:</strong>
+              <%= @user.created_at.strftime("%A %b %d") %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
