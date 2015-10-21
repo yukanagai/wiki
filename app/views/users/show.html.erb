@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="main">
+    <div class="my-account-header">
+      <h1 class="header-text">Account Info</h1>
+      <hr />
+    </div>
+
+    <div class="user-page">
+
+      <div class="user-posts">
+        <h2 class="header-text">Published Articles:</h2>
+        <ul>
+          <% @user.articles.each do |article| %>
+            <li><%= link_to article.title, article  %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="user-info">
+        <h2 class="header-text">User Info</h2>
+        <ul>
+          <li>
+            <strong>First name:</strong>
+            <%= @user.first_name.capitalize %>
+          </li>
+          <li>
+            <strong>Last name:</strong>
+            <%= @user.last_name.capitalize %>
+          </li>
+          <li>
+            <strong>Email:</strong>
+            <%= @user.email %>
+          </li>
+
+          <li>
+            <Strong>User since:</strong>
+              <%= @user.created_at.strftime("%A %b %d") %>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
