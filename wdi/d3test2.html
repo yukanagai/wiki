@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<link rel="stylesheet" href="d3test2.css" />
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <script>
+
+  	// using callback funtion - all code will run once the data has been loaded:
+  	d3.json("https://data.cityofnewyork.us/resource/8586-3zfm.json", function(data) {
+
+  		var manhattanList = [];
+  		var queensList = [];
+  		var brooklynList = [];
+  		var statenIsList = [];
+  		var bronxList = [];
+
+  		for (i=0; i<data.length; i++) { 
+  			if (data[i].boro === "M") {
+  				manhattanList.push(data[i])
+  			} else if (data[i].boro == "Q") {
+  				queensList.push(data[i])
+  			} else if (data[i].boro == "X") {
+  				bronxList.push(data[i])
+  			} else if (data[i].boro == "R") {
+  				statenIsList.push(data[i])
+  			} else {
+  				brooklynList.push(data[i])
+  			}
+  		};
+
+  		var width = 1000;
+  		var height = 4500;
+
+  		// creating scales:
+  		var widthScaled = d3.scale.linear()
+  						.domain([0, 83300000]) // data space
+  						.range([0, width]); // pixel space
+
+  		// creating an axis - using our width scale
+	 	var axis = d3.svg.axis()
+	 				.ticks(10) // specifying how many "ticks" you want in your x
+	 				.scale(widthScaled); // scalling your x axis by canvas size
+
+	 	// Nesting to create seperate arrays for each borough
+  		var dataFormatted = d3.nest()
+            .key(function(d) { return d.boro; })
+            .map(data);
+
+        	console.log(data);
+        	console.log(dataFormatted);
+
+       	// Creating the SVG:
+  		var canvas = d3.select("body")
+  			.append("svg")
+  			.attr("width", width)
+  			.attr("height", height)
+  			.attr("transform", "translate(100, 100)")
+  			.call(axis);
+
+  		// Creating the rectangles
+  		canvas.selectAll("rect")
+  			.data(data)
+  			.enter()
+  				.append("rect") // append rect for each data element
+  					.attr("width", function(d) { return widthScaled(d.award); })
+  					.attr("height", 25)
+  					.attr("y", function(d, i) { return i * 30; })
+  					.attr("x", function(d) { return d })
+  					.attr("fill", function(d) { // randomizing bar colors
+  					 	return "hsl(" + Math.random() * 360 + ",60%,80%)"
+  					 });
+
+  		// Adding the text
+  		canvas.selectAll("text")
+  			.data(data)
+  			.enter()
+  				.append("text")
+  				.attr("fill", "black")
+  				.attr("y", function(d, i) { return i * 40 + 24; }) // where the text is placed
+  				.text(function (d) { return d.name; });
+  	
+  	});	// d3.json		
+
+  </script>
+
+</body>
+</html>

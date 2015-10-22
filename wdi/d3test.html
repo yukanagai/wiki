@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <script>
+
+  	var dataArray = [10, 20, 40, 50, 60, 100];
+
+  	// dataArray.sort(d3.descending); // to descend  array
+  	// d3.min(dataArray); // print smallest value in array
+  	// d3.max(dataArray); // print out max
+  	// d3.extend(dataArray); // gives you both min + max
+  	// d3.sum(dataArray); // print out sum of the array
+  	// d3.mean(dataArray); // print mean of array
+  	// d3.median(dataArray); // print median
+  	// d3.shuffle(dataArray); // shuffle the order of the array
+
+
+  	var width = 500;
+  	var height = 600;
+
+  	// creating scales:
+  	var widthScaled = d3.scale.linear()
+  						.domain([0, 120])
+  						.range([0, width]);
+
+  	var colorScale = d3.scale.linear()
+  						.domain([0, 120])
+  						.range(["red", "blue"]);
+
+  	// creating an axis - using our width scale
+	 var axis = d3.svg.axis()
+	 				.ticks(5) // specifying how many "ticks" you want in your x
+	 				.scale(widthScaled); // scalling your x axis by canvas size
+
+  	// creating the dimension of our canvas
+	var canvas = d3.select("body")
+	  .append('svg')
+	  .attr('width', width)
+	  .attr('height', height)
+	  // appending "g" to group everything on the canvas <g>
+	  .append("g")
+	  // transform moves your bar chart on the DOM
+	  // translate (x pixels to the right, y pixels to the bottom)
+	  .attr("transform", "translate(20, 0)");
+
+
+	var data = [10, 20];
+
+	var circle = canvas.selectAll('circle')
+					.data(data)
+					.attr("fill", "red") // this becomes "update" when we have more DOM elements than we do data
+					.enter() // placeholder for all non-existing DOM elements from the 
+						.append('circle')
+						.attr('cx', 150)
+						.attr('cy', 145)
+						.attr("fill", 'green')
+						.attr('r', 25);
+
+	// CIRCLE TRANSITIONS
+	circle.transition()
+			.duration(1500) // transition over 1.5 secs
+			// .delay(1000) //start the transition after 2 secs
+			.attr("cx", 300) // transition the x axis to 200
+			.transition()
+			.attr("cy", 265)
+			.each("end", function() { d3.select(this).attr("fill", "red"); });
+
+
+	// selecting all the rectangles (that doesn't exist yet on the DOM)
+	var bars = canvas.selectAll('rect')
+	  // bind the data to the empty selection
+	  .data(dataArray)
+	  // .enter() contains placeholders for each data element in our array for each corresponding DOM elements 
+	  .enter()
+	    // for each element, append a rectangle
+	    .append('rect')
+	    // instead of hardcoding the width, use our data set:
+	    // width of the rectangle corresponds to the data set number
+	    // for each data point, it will go into the scale which will produce a new value iwithin our scale
+	    .attr('width', function(d) { return widthScaled(d); })
+	    .attr('height', 50)
+	    .attr("fill", function(d) { return colorScale(d)})
+	    // passing in the data + it's index (i)
+	    .attr("y", function(d, i) { return i * 60; });
+
+	// Moving the group G down + ADDING THE X AXIS TO THE CANVAS
+	canvas.append("g")
+		.attr("transform", "translate(0, 400)")
+		.call(axis);
+
+  </script>
+
+</body>
+</html>
