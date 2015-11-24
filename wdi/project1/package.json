@@ -1,0 +1,27 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "http": "0.0.0",
+    "jade": "^1.11.0",
+    "machinepack-spotify": "0.0.3",
+    "payload": "^1.0.3",
+    "react": "^0.14.1",
+    "react-addons-css-transition-group": "^0.14.1",
+    "react-animate": "^3.0.0",
+    "react-frame-component": "^0.3.4",
+    "react-tools": "^0.13.3",
+    "react.animate": "^1.0.0",
+    "request": "^2.65.0",
+    "spotify-web-api-node": "^2.1.0"
+  }
+}
